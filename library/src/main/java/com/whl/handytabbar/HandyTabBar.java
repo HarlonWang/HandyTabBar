@@ -117,7 +117,6 @@ public class HandyTabBar extends HorizontalScrollView{
 
                 scrollToChild(currentPosition, 0);
 
-
                 setActiveTab(currentPosition);
             }
         });
@@ -201,7 +200,6 @@ public class HandyTabBar extends HorizontalScrollView{
             for (int i = 0; i < tabCount - 1; i++) {
                 View tab = mTabsContainer.getChildAt(i);
                 canvas.drawLine(tab.getRight(), mTabBarStyle.dividerPadding, tab.getRight(), height - mTabBarStyle.dividerPadding, dividerPaint);
-                Log.d(TAG, "dividerPadding-->" + mTabBarStyle.dividerPadding);
             }
         }
     }

@@ -4,17 +4,21 @@
     android:layout_height="match_parent"
     >
 
-    <com.whl.handytabbar.HandyTabBar
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:id="@+id/tab_bar"
-        android:background="@color/colorPrimary"
+        android:background="?attr/colorPrimary"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
         />
 
-    <android.support.v4.view.ViewPager
+    <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/view_pager"
-        />
+        android:scrollbars="none"
+        >
+        </ListView>
+
 
 </LinearLayout>

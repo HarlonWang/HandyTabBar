@@ -1,38 +1,58 @@
 package com.whl.handytabbar.sample;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.whl.handytabbar.HandyTabBar;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    private ViewPager mViewPager;
-    private HandyTabBar mTabBar;
 
-    private ListPageAdapter mPageAdapter;
+    private ListView mListView;
+
+    private String[] styleItems={"Default HandyTabBar","Simple HandyTabBar",""};
+    private String[] layoutItems={"Default HandyTabBar","Simple HandyTabBar"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTabBar= (HandyTabBar) findViewById(R.id.tab_bar);
-        mViewPager= (ViewPager) findViewById(R.id.view_pager);
+        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
 
-        mPageAdapter=new ListPageAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(mPageAdapter);
-        mTabBar.attachToViewPager(mViewPager);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("HandyTabBar Sample");
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+
+        initViews();
     }
 
+    private void initViews() {
 
+        mListView= (ListView) findViewById(R.id.list_view);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,layoutItems);
+        mListView.setAdapter(adapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(MainActivity.this,SampleActivity.class);
+                if (position==1){
+                    intent.putExtra("simple","simple");
+                }
+                startActivity(intent);
+            }
+        });
+
+    }
 
 
     @Override
@@ -50,39 +70,16 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.top) {
+            Toast.makeText(MainActivity.this,"top",Toast.LENGTH_LONG).show();
+            return true;
+        }else if (id==R.id.bottom){
+            Toast.makeText(MainActivity.this,"bottom",Toast.LENGTH_LONG).show();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private class ListPageAdapter extends FragmentPagerAdapter{
-
-        private String[] items={"ALL","NEAR","FAR","SUPERSTAR","ALL","NEAR","FAR","SUPERSTAR"};
-
-        public ListPageAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int i) {
-            Fragment sampleFragment=new SampleFragment();
-            Bundle bundle=new Bundle();
-            bundle.putString("text","Fragment_"+i);
-            sampleFragment.setArguments(bundle);
-            return sampleFragment;
-        }
-
-        @Override
-        public int getCount() {
-            return items.length;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return items[position];
-        }
-    }
 
 }
