@@ -1,7 +1,7 @@
 # HandyTabBar
 
 Before that I have been using [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip), it's really simple to use,
-But most of the time,I hope I can do some changes ,so I try to do [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) with some small change,
+But most of the time,I hope I can do some changes ,so I try to do [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) with some change,
 If you like, I hope you can give me more suggestion,Of course, I am very grateful to the [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) author provided such a good code
 
 ## Demo
