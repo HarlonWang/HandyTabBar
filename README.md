@@ -22,13 +22,14 @@ Add the HandyTabBar to your layout:
 In your java code:
 ```java
     mTabBar= (HandyTabBar) findViewById(R.id.tab_bar);
-    mTabBar.attachToViewPager(mViewPager,mTabBarStyle);
+    mTabBar.attachToViewPager(mViewPager);
 ```
 
 ## Customization
 
 When you use, if want more time to define your own, therefore, provided here
   1. TabBarStyle:
+  
 ```java
      TabBarStyle tabBarStyle=new TabBarStyle.Builder(this)
                       .setDrawIndicator(drawIndicator)
@@ -40,9 +41,10 @@ When you use, if want more time to define your own, therefore, provided here
                       .build();
       mTabBar.attachToViewPager(mViewPager,mTabBarStyle);
 ```
-  2. TabLayout(your need to extend BaseTabLayout),like this [SimpleTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/SimpleTabLayout.java) [CustomTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/CustomTabLayout.java) in sample project:
+  2. TabLayout:
+  (your need to extend BaseTabLayout,like this [SimpleTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/SimpleTabLayout.java) [CustomTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/CustomTabLayout.java) in sample project)
 ```java
-        mTabBar.attachToViewPager(mViewPager,mTabBarStyle,customTabLayout);
+        mTabBar.attachToViewPager(mViewPager,customTabLayout);
 ```
     
 ## Thanks
