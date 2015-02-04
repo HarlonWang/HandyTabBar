@@ -45,6 +45,8 @@ public class HandyTabBar extends HorizontalScrollView{
     private Paint rectPaint;
     private Paint dividerPaint;
 
+    private int mSelectedPosition;
+
     public HandyTabBar(Context context) {
         this(context, null);
     }
@@ -117,7 +119,7 @@ public class HandyTabBar extends HorizontalScrollView{
 
                 scrollToChild(currentPosition, 0);
 
-                setActiveTab(currentPosition);
+                setActiveTab(mSelectedPosition);
             }
         });
     }
@@ -205,21 +207,13 @@ public class HandyTabBar extends HorizontalScrollView{
     }
 
     private void setActiveTab(int position) {
-        if (mTabBarStyle.drawIndicator){
-            return;
-        }
         for (int i = 0; i < tabCount; i++) {
             View v = mTabsContainer.getChildAt(i);
-            try {
-                TextView tab= (TextView) v.findViewById(R.id.title);
-                if (position==i){
-                    tab.setTypeface(null, 1);
-                }else {
-                    tab.setTypeface(null, 0);
-                }
-            }catch (NullPointerException n){
-                Log.e(TAG,"textView id should be named title ");
+            boolean isSelected=false;
+            if (position==i){
+                isSelected=true;
             }
+            mTabLayout.setSelected(v,isSelected);
         }
     }
 
@@ -232,9 +226,7 @@ public class HandyTabBar extends HorizontalScrollView{
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-            if (currentPosition!=position){
-                setActiveTab(position);
-            }
+
 
             currentPosition = position;
             currentPositionOffset = positionOffset;
@@ -261,6 +253,10 @@ public class HandyTabBar extends HorizontalScrollView{
 
         @Override
         public void onPageSelected(int position) {
+            if (mSelectedPosition!=position){
+                setActiveTab(position);
+            }
+            mSelectedPosition = position;
             if (delegatePageListener != null) {
                 delegatePageListener.onPageSelected(position);
             }

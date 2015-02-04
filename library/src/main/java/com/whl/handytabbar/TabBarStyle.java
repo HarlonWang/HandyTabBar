@@ -15,7 +15,6 @@ public final class TabBarStyle {
     public int indicatorHeight ;
     public int underlineHeight ;
     public int dividerPadding ;
-    public int tabPadding ;
     public int dividerWidth ;
 
     public int scrollOffset ;
@@ -33,7 +32,6 @@ public final class TabBarStyle {
         this.indicatorHeight=builder.indicatorHeight;
         this.underlineHeight=builder.underlineHeight;
         this.dividerPadding=builder.dividerPadding;
-        this.tabPadding=builder.tabPadding;
         this.dividerWidth=builder.dividerWidth;
         this.scrollOffset=builder.scrollOffset;
         this.drawIndicator=builder.drawIndicator;
@@ -53,7 +51,6 @@ public final class TabBarStyle {
         private int indicatorHeight = 8;
         private int underlineHeight = 2;
         private int dividerPadding = 12;
-        private int tabPadding = 24;
         private int dividerWidth = 1;
 
         private int scrollOffset = 52;
@@ -61,7 +58,7 @@ public final class TabBarStyle {
 
         private boolean drawIndicator=true;
 
-        private boolean drawDivider=true;
+        private boolean drawDivider=false;
 
         private boolean drawUnderline=true;
 
@@ -114,11 +111,6 @@ public final class TabBarStyle {
 
         public Builder setDividerPadding(int dividerPadding) {
             this.dividerPadding = dividerPadding;
-            return this;
-        }
-
-        public Builder setTabPadding(int tabPadding) {
-            this.tabPadding = tabPadding;
             return this;
         }
 

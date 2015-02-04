@@ -10,34 +10,42 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
-import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
 
     private ListView mListView;
+    private CheckBox drawIndicator;
+    private CheckBox drawUnderLine;
+    private CheckBox drawDivider;
 
-    private String[] styleItems={"Default HandyTabBar","Simple HandyTabBar",""};
-    private String[] layoutItems={"Default HandyTabBar","Simple HandyTabBar"};
+    private String[] layoutItems={"Default","Simple","Custom"};
+
+    private boolean isTop=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
-
-        setSupportActionBar(toolbar);
-        toolbar.setTitle("HandyTabBar Sample");
-        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
-
+        initToolbar();
         initViews();
     }
 
-    private void initViews() {
+    private void initToolbar(){
+        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("HandyTabBar Sample");
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+    }
 
+    private void initViews() {
+        drawIndicator= (CheckBox) findViewById(R.id.drawIndicator);
+        drawUnderLine= (CheckBox) findViewById(R.id.drawUnderLine);
+        drawDivider= (CheckBox) findViewById(R.id.drawDivider);
         mListView= (ListView) findViewById(R.id.list_view);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,layoutItems);
         mListView.setAdapter(adapter);
@@ -45,9 +53,12 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(MainActivity.this,SampleActivity.class);
-                if (position==1){
-                    intent.putExtra("simple","simple");
-                }
+                intent.putExtra("top",isTop);
+                intent.putExtra("drawIndicator",drawIndicator.isChecked());
+                intent.putExtra("drawUnderLine",drawUnderLine.isChecked());
+                intent.putExtra("drawDivider",drawDivider.isChecked());
+                intent.putExtra("type",position);
+                intent.putExtra("title",layoutItems[position]);
                 startActivity(intent);
             }
         });
@@ -71,10 +82,10 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.top) {
-            Toast.makeText(MainActivity.this,"top",Toast.LENGTH_LONG).show();
+            isTop=true;
             return true;
         }else if (id==R.id.bottom){
-            Toast.makeText(MainActivity.this,"bottom",Toast.LENGTH_LONG).show();
+            isTop=false;
             return true;
         }
 

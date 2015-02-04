@@ -45,4 +45,7 @@ public abstract class BaseTabLayout {
 
     public abstract View createView(LayoutInflater inflater,int position,ViewGroup parent,CharSequence pageTitle);
 
+    public void setSelected(View v,boolean isSelected) {
+
+    }
 }

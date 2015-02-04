@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.whl.handytabbar.R;
-
 
 /**
  * Created by Administrator on 2015/1/30.
@@ -23,8 +21,7 @@ public class DefaultTabLayout extends BaseTabLayout {
         textView.setTextColor(getContext().getResources().getColor(android.R.color.white));
         textView.setSingleLine();
         textView.setMinWidth(160);
-        textView.setPadding(15,15,15,15);
-        textView.setId(R.id.title);
+        textView.setPadding(30,30,30,30);
         return textView;
     }
 
