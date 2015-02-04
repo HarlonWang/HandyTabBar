@@ -10,7 +10,7 @@ If you like, I hope you can give me more suggestion,Of course, I am very gratefu
 
 ## Usage
 
-Add the Slider to your layout:
+Add the HandyTabBar to your layout:
 ```java
     <com.whl.handytabbar.HandyTabBar
         android:layout_width="match_parent"
