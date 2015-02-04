@@ -12,7 +12,7 @@ If you like, I hope you can give me more suggestion,Of course, I am very gratefu
 
 ### Step 1
 
-add dependencies in build.gradle.
+Add dependencies in build.gradle.
 ```groovy
 	dependencies {
 	   compile 'com.whl.handytabbar:library:1.0.0'
@@ -53,7 +53,8 @@ When you use, if want more time to define your own, therefore, provided here
       mTabBar.attachToViewPager(mViewPager,mTabBarStyle);
 ```
   2. TabLayout:
-  (your need to extend BaseTabLayout,like this [SimpleTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/SimpleTabLayout.java) [CustomTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/CustomTabLayout.java) in sample project)
+  
+(your need to extend BaseTabLayout,like this [SimpleTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/SimpleTabLayout.java) [CustomTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/CustomTabLayout.java) in sample project)
 ```java
         mTabBar.attachToViewPager(mViewPager,customTabLayout);
 ```
