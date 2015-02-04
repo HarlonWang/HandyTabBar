@@ -29,7 +29,7 @@ In your java code:
 
 When you use, if want more time to define your own, therefore, provided here
   1. TabBarStyle:
-  ```java
+```java
      TabBarStyle tabBarStyle=new TabBarStyle.Builder(this)
                       .setDrawIndicator(drawIndicator)
                       .setDrawUnderline(drawUnderLine)
@@ -39,16 +39,19 @@ When you use, if want more time to define your own, therefore, provided here
                       ...
                       .build();
       mTabBar.attachToViewPager(mViewPager,mTabBarStyle);
-  ```
+```
   2. TabLayout(your need to extend BaseTabLayout),like this [SimpleTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/SimpleTabLayout.java) [CustomTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/CustomTabLayout.java) in sample project:
-    ```java
+```java
         mTabBar.attachToViewPager(mViewPager,mTabBarStyle,customTabLayout);
-    ```
+```
     
 ## Thanks
 - [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
 
 ##Contact me
+
 I love open source project, if you have a better idea on this project or way, please let me know, thanks:)
-[Email](81813780@qq.com)
+
+[Email](mailto:81813780@qq.com)
+
 [Weibo](http://weibo.com/601265161)
