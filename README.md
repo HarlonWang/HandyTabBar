@@ -10,6 +10,17 @@ If you like, I hope you can give me more suggestion,Of course, I am very gratefu
 
 ## Usage
 
+### Step 1
+
+add dependencies in build.gradle.
+```groovy
+	dependencies {
+	   compile 'com.whl.handytabbar:library:1.0.0'
+	}
+```
+
+### Step 2
+
 Add the HandyTabBar to your layout:
 ```java
     <com.whl.handytabbar.HandyTabBar
