@@ -61,9 +61,9 @@ When you use, if want more time to define your own, therefore, provided here
 
   3. Tips:
   
-  HandyTabBar don't provided about animation method(maybe later), but if you want to use animation,
-  very simple, need only in onTabState () method to implements anything you want in the animation,
-   I strongly recommend to use [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations),just like this
+HandyTabBar don't provided about animation method(maybe later), but if you want to use animation,
+very simple, need only in onTabState () method to implements anything you want in the animation,
+I strongly recommend to use [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations),just like this
 ```java
     @Override
     public void onTabState(View v, boolean isSelected,int position) {
