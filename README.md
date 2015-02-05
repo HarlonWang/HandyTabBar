@@ -30,7 +30,7 @@ Add the HandyTabBar to your layout:
         android:background="@color/colorPrimary"
         />
 ```
-In your java code:
+In your java code(Please Override your FragmentPagerAdapter getPageTitle() method):
 ```java
     mTabBar= (HandyTabBar) findViewById(R.id.tab_bar);
     mTabBar.attachToViewPager(mViewPager);
