@@ -6,7 +6,7 @@ If you like, I hope you can give me more suggestion,Of course, I am very gratefu
 
 ## Demo
 
-![](https://github.com/81813780/HandyTabBar/blob/master/demo.gif)
+![](https://github.com/81813780/HandyTabBar/blob/master/demo2.gif)
 
 ## Usage
 
