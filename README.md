@@ -15,7 +15,7 @@ If you like, I hope you can give me more suggestion,Of course, I am very gratefu
 Add dependencies in build.gradle.
 ```groovy
 	dependencies {
-	   compile 'com.whl.handytabbar:library:1.0.0'
+	   compile 'com.whl.handytabbar:library:1.0.2'
 	}
 ```
 
