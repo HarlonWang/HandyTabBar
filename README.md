@@ -2,7 +2,7 @@
 
 Before that I have been using [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip), it's really simple to use,
 But most of the time,I hope I can do some changes ,so I try to do [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) with some change,
-If you like, I hope you can give me more suggestion,Of course, I am very grateful to the [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) author provided such a good code
+If you like, I hope you can give me more suggestion,Of course, I am very grateful to the [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) author provided such a good code.
 
 ## Demo
 
@@ -58,9 +58,30 @@ When you use, if want more time to define your own, therefore, provided here
 ```java
         mTabBar.attachToViewPager(mViewPager,customTabLayout);
 ```
-    
+
+  3. Tips:
+  
+  HandyTabBar don't provided about animation method(maybe later), but if you want to use animation,
+  very simple, need only in onTabState () method to implements anything you want in the animation,
+   I strongly recommend to use [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations),just like this
+```java
+    @Override
+    public void onTabState(View v, boolean isSelected,int position) {
+        ImageView imageView= (ImageView) v.findViewById(R.id.yourViewID);
+        if (isSelected){
+            YoYo.with(Techniques.Tada)
+                .duration(700)
+                .playOn(imageView);
+        }else {
+            ...
+        }
+    }
+```
+  or look this [CustomTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/CustomTabLayout.java);
+
 ## Thanks
 - [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
+- [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations)
 
 ##Contact me
 

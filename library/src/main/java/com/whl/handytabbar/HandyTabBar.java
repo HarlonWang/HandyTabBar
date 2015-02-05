@@ -24,8 +24,6 @@ import com.whl.handytabbar.tablayout.DefaultTabLayout;
  */
 public class HandyTabBar extends HorizontalScrollView{
 
-    private static final String TAG="HandyTabBar";
-
     private TabBarStyle mTabBarStyle;
     private BaseTabLayout mTabLayout;
     private ViewPager mViewPager;
@@ -213,7 +211,7 @@ public class HandyTabBar extends HorizontalScrollView{
             if (position==i){
                 isSelected=true;
             }
-            mTabLayout.setSelected(v,isSelected);
+            mTabLayout.onTabState(v,isSelected,position);
         }
     }
 

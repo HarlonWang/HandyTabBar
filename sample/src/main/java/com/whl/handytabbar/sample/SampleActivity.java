@@ -66,7 +66,7 @@ public class SampleActivity extends ActionBarActivity{
 
     private void initHandyTabBar() {
         boolean drawIndicator=getIntent().getBooleanExtra("drawIndicator",false);
-        boolean drawUnderLine=getIntent().getBooleanExtra("drawUnderLine",true);
+        boolean drawUnderLine=getIntent().getBooleanExtra("drawUnderLine",false);
         boolean drawDivider=getIntent().getBooleanExtra("drawDivider",false);
         mTabBarStyle=new TabBarStyle.Builder(this)
                 .setDrawIndicator(drawIndicator)
@@ -97,14 +97,14 @@ public class SampleActivity extends ActionBarActivity{
     }
 
     private void setCustom(){
-        int[] res=new int[]{R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
+        int[] res=new int[]{R.drawable.ic_account_balance_white_24dp,R.drawable.ic_account_box_white_24dp,R.drawable.ic_event_white_24dp,R.drawable.ic_alarm_add_white_24dp};
         CustomTabLayout customTabLayout=new CustomTabLayout(res);
         mTabBar.attachToViewPager(mViewPager,customTabLayout,mTabBarStyle);
     }
 
     private class ListPageAdapter extends FragmentPagerAdapter {
 
-        private String[] items={"ALL","NEAR","FAR","SUPERSTAR"};
+        private String[] items={"All","Near","Far","Mid"};
 
         public ListPageAdapter(FragmentManager fm) {
             super(fm);

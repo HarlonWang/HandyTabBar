@@ -11,7 +11,7 @@ import com.whl.handytabbar.tablayout.BaseTabLayout;
 /**
  * Created by Administrator on 2015/2/4.
  */
-public class CustomTabLayout extends BaseTabLayout{
+public class CustomTabLayout extends BaseTabLayout {
 
     private int[] res;
 
@@ -31,12 +31,19 @@ public class CustomTabLayout extends BaseTabLayout{
     }
 
     @Override
-    public void setSelected(View v, boolean isSelected) {
+    public void onTabState(View v, boolean isSelected,int position) {
         TextView textView= (TextView) v.findViewById(R.id.text);
+        ImageView imageView= (ImageView) v.findViewById(R.id.icon);
         if (isSelected){
+            if (position%2==0){
+                AnimationUtils.getRotateAnimation(imageView);
+            }else {
+                AnimationUtils.getBounceAnimation(imageView);
+            }
             textView.setTextColor(getContext().getResources().getColor(android.R.color.white));
         }else {
             textView.setTextColor(getContext().getResources().getColor(R.color.normal));
         }
     }
+
 }

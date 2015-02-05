@@ -31,21 +31,15 @@ public abstract class BaseTabLayout {
         this.position=position;
     }
 
-    public void setItemPosition(int position){
-        this.position=position;
-    }
-
-    public int getItemPosition(){
-        return position;
-    }
-
     public Context getContext(){
         return mContext;
     }
 
     public abstract View createView(LayoutInflater inflater,int position,ViewGroup parent,CharSequence pageTitle);
-
-    public void setSelected(View v,boolean isSelected) {
-
+    
+    public void onTabState(View v,boolean isSelected,int position){
+        
     }
+    
+    
 }

@@ -23,7 +23,7 @@ public class SimpleTabLayout extends BaseTabLayout{
     }
 
     @Override
-    public void setSelected(View v, boolean isSelected) {
+    public void onTabState(View v, boolean isSelected,int position) {
         TextView textView= (TextView) v.findViewById(R.id.text);
         if (isSelected){
             textView.setTextColor(getContext().getResources().getColor(android.R.color.white));
@@ -31,4 +31,5 @@ public class SimpleTabLayout extends BaseTabLayout{
             textView.setTextColor(getContext().getResources().getColor(R.color.normal));
         }
     }
+    
 }
