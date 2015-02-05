@@ -38,7 +38,7 @@ In your java code:
 
 ## Customization
 
-When you use, if want more time to define your own, therefore, provided here
+When you use, I think you want more time to define your own, therefore, provided here
 
 - TabBarStyle:
   
