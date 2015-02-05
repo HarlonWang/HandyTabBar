@@ -39,7 +39,7 @@ In your java code:
 ## Customization
 
 When you use, if want more time to define your own, therefore, provided here
-  1. TabBarStyle:
+1. TabBarStyle:
   
 ```java
      TabBarStyle tabBarStyle=new TabBarStyle.Builder(this)
@@ -52,14 +52,14 @@ When you use, if want more time to define your own, therefore, provided here
                       .build();
       mTabBar.attachToViewPager(mViewPager,mTabBarStyle);
 ```
-  2. TabLayout:
+2. TabLayout:
   
 (your need to extend BaseTabLayout,like this [SimpleTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/SimpleTabLayout.java) [CustomTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/CustomTabLayout.java) in sample project)
 ```java
         mTabBar.attachToViewPager(mViewPager,customTabLayout);
 ```
 
-  3. Tips:
+3. Tips:
   
 HandyTabBar don't provided about animation method(maybe later), but if you want to use animation,
 very simple, need only in onTabState () method to implements anything you want in the animation,
