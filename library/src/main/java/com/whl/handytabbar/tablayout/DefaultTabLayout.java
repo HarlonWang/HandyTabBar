@@ -21,7 +21,6 @@ public class DefaultTabLayout extends BaseTabLayout {
         textView.setTextColor(getContext().getResources().getColor(android.R.color.white));
         textView.setSingleLine();
         textView.setMinWidth(160);
-        textView.setPadding(30,30,30,30);
         return textView;
     }
 

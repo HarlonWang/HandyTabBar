@@ -15,7 +15,7 @@ import com.whl.handytabbar.TabBarStyle;
 /**
  * Created by Administrator on 2015/2/3.
  */
-public class SampleActivity extends ActionBarActivity{
+public class SampleActivity extends ActionBarActivity {
 
 
     private ViewPager mViewPager;
