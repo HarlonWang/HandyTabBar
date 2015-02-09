@@ -31,10 +31,10 @@ public class AnimationUtils {
     public static void getBounceAnimation(View view){
         AnimatorSet animatorSet=new AnimatorSet();
         animatorSet.playTogether(
-                ObjectAnimator.ofFloat(view, "scaleX", 1.5f, 0.95f, 1.25f, 1),
-                ObjectAnimator.ofFloat(view,"scaleY",1.5f,0.95f,1.25f,1));
+                ObjectAnimator.ofFloat(view, "scaleX", 1.0f ,1.4f, 0.9f, 1.15f, 0.95f, 1.02f, 1.0f),
+                ObjectAnimator.ofFloat(view,"scaleY",1.0f ,1.4f, 0.9f, 1.15f, 0.95f, 1.02f, 1.0f));
         animatorSet.setTarget(view);
-        animatorSet.setDuration(700);
+        animatorSet.setDuration(1000);
         animatorSet.start();
     }
     
