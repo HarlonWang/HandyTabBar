@@ -8,12 +8,18 @@ import android.content.Context;
  */
 public final class TabBarStyle {
 
+
+    public static final int UNDERLINE=0;
+    public static final int TOPLINE=1;
+    public static final int BOTHLINE=2;
+    public static final int NONELINE=3;
+    
     public final int indicatorColor ;
-    public int underlineColor ;
+    public int lineColor ;
     public int dividerColor ;
 
     public int indicatorHeight ;
-    public int underlineHeight ;
+    public int lineHeight ;
     public int dividerPadding ;
     public int dividerWidth ;
 
@@ -23,20 +29,21 @@ public final class TabBarStyle {
 
     public boolean drawDivider;
 
-    public boolean drawUnderline;
+    public int drawLine;
+    
 
     private TabBarStyle(Builder builder){
         this.indicatorColor=builder.indicatorColor;
-        this.underlineColor=builder.underlineColor;
+        this.lineColor=builder.lineColor;
         this.dividerColor=builder.dividerColor;
         this.indicatorHeight=builder.indicatorHeight;
-        this.underlineHeight=builder.underlineHeight;
+        this.lineHeight=builder.lineHeight;
         this.dividerPadding=builder.dividerPadding;
         this.dividerWidth=builder.dividerWidth;
         this.scrollOffset=builder.scrollOffset;
         this.drawIndicator=builder.drawIndicator;
         this.drawDivider=builder.drawDivider;
-        this.drawUnderline=builder.drawUnderline;
+        this.drawLine=builder.drawLine;
     }
 
 
@@ -45,11 +52,11 @@ public final class TabBarStyle {
         private Context mContext;
 
         private int indicatorColor = 0xFFFFFFFF;
-        private int underlineColor = 0xFFFFFFFF;
+        private int lineColor = 0xFFFFFFFF;
         private int dividerColor = 0xFFFFFFFF;
 
         private int indicatorHeight = 8;
-        private int underlineHeight = 2;
+        private int lineHeight = 2;
         private int dividerPadding = 12;
         private int dividerWidth = 1;
 
@@ -60,7 +67,7 @@ public final class TabBarStyle {
 
         private boolean drawDivider=false;
 
-        private boolean drawUnderline=true;
+        private int drawLine=0;
 
         public Builder(Context context){
             mContext=context;
@@ -82,13 +89,13 @@ public final class TabBarStyle {
         }
 
 
-        public Builder setUnderlineColor(int underlineColor) {
-            this.underlineColor = underlineColor;
+        public Builder setlineColor(int lineColor) {
+            this.lineColor = lineColor;
             return this;
         }
 
-        public Builder setUnderlineColorResource(int resId) {
-            this.underlineColor = mContext.getResources().getColor(resId);
+        public Builder setlineColorResource(int resId) {
+            this.lineColor = mContext.getResources().getColor(resId);
             return this;
         }
 
@@ -104,8 +111,8 @@ public final class TabBarStyle {
         }
 
 
-        public Builder setUnderlineHeight(int underlineHeight) {
-            this.underlineHeight = underlineHeight;
+        public Builder setlineHeight(int lineHeight) {
+            this.lineHeight = lineHeight;
             return this;
         }
 
@@ -134,10 +141,10 @@ public final class TabBarStyle {
             return this;
         }
 
-        public Builder setDrawUnderline(boolean drawUnderline) {
-            this.drawUnderline = drawUnderline;
+        public Builder setDrawLine(int drawLine){
+            this.drawLine=drawLine;
             return this;
-        }
+        } 
 
 
         public TabBarStyle build(){

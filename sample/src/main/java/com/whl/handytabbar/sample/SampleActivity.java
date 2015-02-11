@@ -66,12 +66,13 @@ public class SampleActivity extends ActionBarActivity {
 
     private void initHandyTabBar() {
         boolean drawIndicator=getIntent().getBooleanExtra("drawIndicator",false);
-        boolean drawUnderLine=getIntent().getBooleanExtra("drawUnderLine",false);
         boolean drawDivider=getIntent().getBooleanExtra("drawDivider",false);
+        int drawLine=getIntent().getIntExtra("drawLine",0);
         mTabBarStyle=new TabBarStyle.Builder(this)
                 .setDrawIndicator(drawIndicator)
-                .setDrawUnderline(drawUnderLine)
                 .setDrawDivider(drawDivider)
+                .setDrawLine(drawLine)
+                .setlineColorResource(android.R.color.white)
                 .build();
         int layoutType=getIntent().getIntExtra("type",0);
         switch (layoutType){

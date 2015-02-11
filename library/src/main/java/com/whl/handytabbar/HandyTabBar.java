@@ -187,10 +187,23 @@ public class HandyTabBar extends HorizontalScrollView{
             canvas.drawRect(lineLeft, height - mTabBarStyle.indicatorHeight, lineRight, height, rectPaint);
         }
 
-        if (mTabBarStyle.drawUnderline){
-            // draw underline
-            rectPaint.setColor(mTabBarStyle.underlineColor);
-            canvas.drawRect(0, height - mTabBarStyle.underlineHeight, mTabsContainer.getWidth(), height, rectPaint);
+        // draw line
+        switch (mTabBarStyle.drawLine){
+            case TabBarStyle.UNDERLINE:
+                rectPaint.setColor(mTabBarStyle.lineColor);
+                canvas.drawRect(0, height - mTabBarStyle.lineHeight, mTabsContainer.getWidth(), height, rectPaint);
+                break;
+            case TabBarStyle.TOPLINE:
+                rectPaint.setColor(mTabBarStyle.lineColor);
+                canvas.drawRect(0, 0, mTabsContainer.getWidth(), mTabBarStyle.lineHeight, rectPaint);
+                break;
+            case TabBarStyle.BOTHLINE:
+                rectPaint.setColor(mTabBarStyle.lineColor);
+                canvas.drawRect(0, height - mTabBarStyle.lineHeight, mTabsContainer.getWidth(), height, rectPaint);
+                canvas.drawRect(0, 0, mTabsContainer.getWidth(), mTabBarStyle.lineHeight, rectPaint);
+                break;
+            case TabBarStyle.NONELINE:
+                break;
         }
 
         if (mTabBarStyle.drawDivider){

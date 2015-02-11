@@ -2,6 +2,7 @@ package com.whl.handytabbar.sample;
 
 
 import android.content.Intent;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -19,12 +21,13 @@ public class MainActivity extends ActionBarActivity {
 
     private ListView mListView;
     private CheckBox drawIndicator;
-    private CheckBox drawUnderLine;
     private CheckBox drawDivider;
 
     private String[] layoutItems={"Default","Simple","Custom"};
 
     private boolean isTop=true;
+    
+    private int drawLine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +47,23 @@ public class MainActivity extends ActionBarActivity {
 
     private void initViews() {
         drawIndicator= (CheckBox) findViewById(R.id.drawIndicator);
-        drawUnderLine= (CheckBox) findViewById(R.id.drawUnderLine);
         drawDivider= (CheckBox) findViewById(R.id.drawDivider);
+        
+        Spinner spinner= (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<String> spinnerAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,new String[]{"under","top","both","none"});
+        spinner.setAdapter(spinnerAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                drawLine=position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        
         mListView= (ListView) findViewById(R.id.list_view);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,layoutItems);
         mListView.setAdapter(adapter);
@@ -55,8 +73,8 @@ public class MainActivity extends ActionBarActivity {
                 Intent intent=new Intent(MainActivity.this,SampleActivity.class);
                 intent.putExtra("top",isTop);
                 intent.putExtra("drawIndicator",drawIndicator.isChecked());
-                intent.putExtra("drawUnderLine",drawUnderLine.isChecked());
                 intent.putExtra("drawDivider",drawDivider.isChecked());
+                intent.putExtra("drawLine",drawLine);
                 intent.putExtra("type",position);
                 intent.putExtra("title",layoutItems[position]);
                 startActivity(intent);
