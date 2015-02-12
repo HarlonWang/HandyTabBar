@@ -40,12 +40,12 @@ In your java code (  please override your FragmentPagerAdapter getPageTitle() me
 
 When you use, I think you want more time to define your own, therefore, provided here
 
-- TabBarStyle:
+- TabBarStyle(whole HandyTabBar style):
   
 ```java
      TabBarStyle tabBarStyle=new TabBarStyle.Builder(this)
                       .setDrawIndicator(drawIndicator)
-                      .setDrawUnderline(drawUnderLine)
+                      .setDrawLine(TabBarStyle.TOPLINE)
                       .setDrawDivider(drawDivider)
                       .setIndicatorHeight()
                       setDividerColor()
@@ -53,7 +53,7 @@ When you use, I think you want more time to define your own, therefore, provided
                       .build();
       mTabBar.attachToViewPager(mViewPager,mTabBarStyle);
 ```
-- TabLayout:
+- TabLayout(Single Tab should be like):
   
 (your need to extend BaseTabLayout,like this [SimpleTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/SimpleTabLayout.java) [CustomTabLayout](https://github.com/81813780/HandyTabBar/blob/master/sample/src/main/java/com/whl/handytabbar/sample/CustomTabLayout.java) in sample project)
 ```java

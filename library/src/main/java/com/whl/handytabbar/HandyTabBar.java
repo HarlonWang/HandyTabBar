@@ -237,8 +237,6 @@ public class HandyTabBar extends HorizontalScrollView{
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-
-
             currentPosition = position;
             currentPositionOffset = positionOffset;
 
