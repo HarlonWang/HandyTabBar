@@ -1,7 +1,7 @@
 # HandyTabBar
 
 Before that I have been using [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip), it's really simple to use,
-But most of the time,I want to define each tab or I can do more things ,so I make this library with my thought,
+But most of the time,I want to custom each tab or more things ,so I make this library with my thought,
 If you like, I hope you can give me more suggestion,Of course, I am very grateful to the [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) author provided such a good code.
 
 ## Demo
