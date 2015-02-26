@@ -6,7 +6,7 @@ If you like, I hope you can give me more suggestion,Of course, I am very gratefu
 
 ## Demo
 
-![](https://github.com/81813780/HandyTabBar/blob/master/demo2.gif)
+![](https://github.com/81813780/HandyTabBar/blob/master/demo3.gif)
 
 ## Usage
 
@@ -15,7 +15,7 @@ If you like, I hope you can give me more suggestion,Of course, I am very gratefu
 Add dependencies in build.gradle.
 ```groovy
 	dependencies {
-	   compile 'com.whl.handytabbar:library:1.0.2'
+	   compile 'com.whl.handytabbar:library:1.0.3'
 	}
 ```
 
