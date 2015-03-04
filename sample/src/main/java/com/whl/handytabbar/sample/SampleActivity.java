@@ -65,9 +65,9 @@ public class SampleActivity extends ActionBarActivity {
     }
 
     private void initHandyTabBar() {
-        boolean drawIndicator=getIntent().getBooleanExtra("drawIndicator",false);
         boolean drawDivider=getIntent().getBooleanExtra("drawDivider",false);
         int drawLine=getIntent().getIntExtra("drawLine",0);
+        int drawIndicator=getIntent().getIntExtra("drawIndicator",0);
         mTabBarStyle=new TabBarStyle.Builder(this)
                 .setDrawIndicator(drawIndicator)
                 .setDrawDivider(drawDivider)

@@ -20,7 +20,6 @@ public class MainActivity extends ActionBarActivity {
 
 
     private ListView mListView;
-    private CheckBox drawIndicator;
     private CheckBox drawDivider;
 
     private String[] layoutItems={"Default","Simple","Custom"};
@@ -28,6 +27,8 @@ public class MainActivity extends ActionBarActivity {
     private boolean isTop=true;
     
     private int drawLine;
+    
+    private int drawIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void initViews() {
-        drawIndicator= (CheckBox) findViewById(R.id.drawIndicator);
         drawDivider= (CheckBox) findViewById(R.id.drawDivider);
         
         Spinner spinner= (Spinner) findViewById(R.id.spinner);
@@ -63,6 +63,21 @@ public class MainActivity extends ActionBarActivity {
 
             }
         });
+
+        Spinner spinner2= (Spinner) findViewById(R.id.spinner2);
+        ArrayAdapter<String> spinner2Adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,new String[]{"line","none","triangle"});
+        spinner2.setAdapter(spinner2Adapter);
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                drawIndicator=position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         
         mListView= (ListView) findViewById(R.id.list_view);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,layoutItems);
@@ -72,7 +87,7 @@ public class MainActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(MainActivity.this,SampleActivity.class);
                 intent.putExtra("top",isTop);
-                intent.putExtra("drawIndicator",drawIndicator.isChecked());
+                intent.putExtra("drawIndicator",drawIndicator);
                 intent.putExtra("drawDivider",drawDivider.isChecked());
                 intent.putExtra("drawLine",drawLine);
                 intent.putExtra("type",position);

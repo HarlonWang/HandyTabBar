@@ -14,6 +14,10 @@ public final class TabBarStyle {
     public static final int BOTHLINE=2;
     public static final int NONELINE=3;
     
+    public static final int INDICATOR_LINE=0;
+    public static final int INDICATOR_NONE=1;
+    public static final int INDICATOR_TRIANGLE=2;
+
     public final int indicatorColor ;
     public int lineColor ;
     public int dividerColor ;
@@ -25,7 +29,7 @@ public final class TabBarStyle {
 
     public int scrollOffset ;
 
-    public final boolean drawIndicator;
+    public int drawIndicator;
 
     public boolean drawDivider;
 
@@ -55,7 +59,7 @@ public final class TabBarStyle {
         private int lineColor = 0xFFFFFFFF;
         private int dividerColor = 0xFFFFFFFF;
 
-        private int indicatorHeight = 8;
+        private int indicatorHeight = 12;
         private int lineHeight = 2;
         private int dividerPadding = 12;
         private int dividerWidth = 1;
@@ -63,7 +67,7 @@ public final class TabBarStyle {
         private int scrollOffset = 52;
 
 
-        private boolean drawIndicator=true;
+        private int drawIndicator;
 
         private boolean drawDivider=false;
 
@@ -131,7 +135,7 @@ public final class TabBarStyle {
             return this;
         }
 
-        public Builder setDrawIndicator(boolean drawIndicator) {
+        public Builder setDrawIndicator(int drawIndicator) {
             this.drawIndicator = drawIndicator;
             return this;
         }

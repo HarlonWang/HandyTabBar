@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -164,7 +165,43 @@ public class HandyTabBar extends HorizontalScrollView{
 
         final int height = getHeight();
 
-        if (mTabBarStyle.drawIndicator){
+        
+        if (mTabBarStyle.drawIndicator!=TabBarStyle.INDICATOR_NONE){
+            rectPaint.setColor(mTabBarStyle.indicatorColor);
+
+            // default: line below current tab
+            View currentTab = mTabsContainer.getChildAt(currentPosition);
+            float lineLeft = currentTab.getLeft();
+            float lineRight = currentTab.getRight();
+
+            // if there is an offset, start interpolating left and right coordinates between current and next tab
+            if (currentPositionOffset > 0f && currentPosition < tabCount - 1) {
+
+                View nextTab = mTabsContainer.getChildAt(currentPosition + 1);
+                final float nextTabLeft = nextTab.getLeft();
+                final float nextTabRight = nextTab.getRight();
+
+                lineLeft = (currentPositionOffset * nextTabLeft + (1f - currentPositionOffset) * lineLeft);
+                lineRight = (currentPositionOffset * nextTabRight + (1f - currentPositionOffset) * lineRight);
+
+            }
+            switch (mTabBarStyle.drawIndicator){
+                case TabBarStyle.INDICATOR_LINE:
+                    canvas.drawRect(lineLeft, height - mTabBarStyle.indicatorHeight, lineRight, height, rectPaint);
+                    break;
+                case TabBarStyle.INDICATOR_TRIANGLE:
+                    Path path=new Path();
+                    float x=lineRight+lineLeft;
+                    path.moveTo(x/2-mTabBarStyle.indicatorHeight,height);
+                    path.lineTo(x/2+mTabBarStyle.indicatorHeight,height);
+                    path.lineTo(x/2,height-mTabBarStyle.indicatorHeight);
+                    path.close();
+                    canvas.drawPath(path,rectPaint);
+                    break;
+            }
+        }
+
+/*        if (mTabBarStyle.drawIndicator){
             // draw indicator line
             rectPaint.setColor(mTabBarStyle.indicatorColor);
 
@@ -182,10 +219,20 @@ public class HandyTabBar extends HorizontalScrollView{
 
                 lineLeft = (currentPositionOffset * nextTabLeft + (1f - currentPositionOffset) * lineLeft);
                 lineRight = (currentPositionOffset * nextTabRight + (1f - currentPositionOffset) * lineRight);
+
             }
 
             canvas.drawRect(lineLeft, height - mTabBarStyle.indicatorHeight, lineRight, height, rectPaint);
-        }
+
+            Path path2=new Path();
+            float x=lineRight+lineLeft;
+            path2.moveTo(x/2-20,height);
+            path2.lineTo(x/2+20,height);
+            path2.lineTo(x/2,height-30);
+            path2.close();
+            canvas.drawPath(path2,rectPaint);
+
+        }*/
 
         // draw line
         switch (mTabBarStyle.drawLine){
@@ -215,6 +262,7 @@ public class HandyTabBar extends HorizontalScrollView{
                 canvas.drawLine(tab.getRight(), mTabBarStyle.dividerPadding, tab.getRight(), height - mTabBarStyle.dividerPadding, dividerPaint);
             }
         }
+
     }
 
     private void setActiveTab(int position) {

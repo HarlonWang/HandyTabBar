@@ -6,7 +6,7 @@ If you like, I hope you can give me more suggestion,Of course, I am very gratefu
 
 ## Demo
 
-![](https://github.com/81813780/HandyTabBar/blob/master/demo3.gif)
+![](https://github.com/81813780/HandyTabBar/blob/master/demo4.gif)
 
 ## Usage
 
@@ -15,7 +15,7 @@ If you like, I hope you can give me more suggestion,Of course, I am very gratefu
 Add dependencies in build.gradle.
 ```groovy
 	dependencies {
-	   compile 'com.whl.handytabbar:library:1.0.3'
+	   compile 'com.whl.handytabbar:library:1.0.4'
 	}
 ```
 
@@ -44,7 +44,7 @@ When you use, I think you want more time to define your own, therefore, provided
   
 ```java
      TabBarStyle tabBarStyle=new TabBarStyle.Builder(this)
-                      .setDrawIndicator(drawIndicator)
+                      .setDrawIndicator(TabBarStyle.INDICATOR_LINE)
                       .setDrawLine(TabBarStyle.TOPLINE)
                       .setDrawDivider(drawDivider)
                       .setIndicatorHeight()
