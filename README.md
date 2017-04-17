@@ -84,7 +84,7 @@ I strongly recommend to use [AndroidViewAnimations](https://github.com/daimajia/
 - [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
 - [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations)
 
-##Contact me
+## Contact me
 
 I love open source project, if you have a better idea on this project or way, please let me know, thanks:)
 
